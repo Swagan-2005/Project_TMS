@@ -1,0 +1,40 @@
+const mongoose=require("mongoose")
+const TrainerSchema=new mongoose.Schema(
+    {
+        name:{
+            type:String,
+            required:true
+        },
+        email:{
+            type:String,
+            required:true
+        },
+        phone:{
+            type:Number,
+            required:true
+        },
+        qualification:{
+            type:String
+        },
+        experience:{
+            type:Number,
+            required:true
+        },
+        specialization:{
+            type:String,
+            required:true
+        },
+        joiningdate:{
+            type:String
+        },
+        salary:{
+            type:Number
+        },
+        status:{
+            type:String,
+            required:true
+        }
+
+    }
+)
+module.exports=mongoose.model("Trainer",TrainerSchema)

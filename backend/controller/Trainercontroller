@@ -1,0 +1,59 @@
+const Trainer=require("../model/Trainermodel")
+const createtrainer=async (req,res)=>{
+    try{
+        const data=req.body;
+        const datadb= await new Trainer(data);
+        const dataadd=await datadb.save();
+        res.send("created successfully")
+    }
+    catch(err){
+        res.send(err)
+    }
+}
+const gettrainer=async (req,res)=>{
+    try{
+        const datas=await Trainer.find()
+        res.send(datas)
+    }
+    catch(err){
+        res.send(err)
+    }
+}
+const searchtrainer=async(req,res)=>{
+    try{
+        const data = req.query;
+        const final=await Trainer.find(data)
+        if(final.length>0){
+                res.send(final)
+        }
+        else{
+            res.send("Not Found")
+        }
+    }
+    catch(err){
+        res.send(err)
+    }
+}
+const updatetrainer=async (req,res)=>{
+    try{
+        const id=req.params.id;
+        const data=req.body;
+        const up=await Trainer.findByIdAndUpdate(id,data,{New:true})
+        res.send("Updated Successfully")
+
+    }
+    catch(err){
+        console.log(err)
+    }
+}
+const deletetrainer=async (req,res)=>{
+    try{
+        const id=req.params.id;
+        const del=await Trainer.findByIdAndDelete(id);
+        res.send("Deleted successfully")
+    }
+    catch(err){
+        res.send(err)
+    }
+}
+module.exports={createtrainer,gettrainer,updatetrainer,deletetrainer,searchtrainer}

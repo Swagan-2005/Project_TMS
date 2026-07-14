@@ -1,0 +1,9 @@
+const express=require("express")
+const route=express.Router()
+const {createtrainer,gettrainer,updatetrainer,deletetrainer,searchtrainer}=require("../controller/Trainercontroller")
+route.post("/trainercreate",createtrainer)
+route.get("/trainerget",gettrainer)
+route.get("/trainersearch",searchtrainer)
+route.put("/trainerput/:id",updatetrainer)
+route.delete("/trainerdelete/:id",deletetrainer)
+module.exports=route
