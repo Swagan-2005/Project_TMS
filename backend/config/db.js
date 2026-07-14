@@ -1,12 +1,14 @@
 const mongoose=require("mongoose")
+require("dotenv").config();
 const mongodb=async()=>{
-    let url="mongodb://localhost:27017/besant"
     try{
-        await mongoose.connect(url)
+        console.log(process.env.MONGO_URI)
+        await mongoose.connect(process.env.MONGO_URI)
         console.log("DB Connected")
     }
-    catch{
+    catch(err){
         console.log("DB is not connected")
+        console.log(err)
     }
 }
 module.exports=mongodb
