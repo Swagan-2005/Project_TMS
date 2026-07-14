@@ -13,12 +13,12 @@ const createtrainer=async (req,res)=>{
 const gettrainer=async (req,res)=>{
     try{
         const datas=await Trainer.find()
-        // res.send(datas)
-         res.status(200).json(data);
+        res.send(datas)
+        
     }
     catch(err){
-        // res.send(err)
-        res.status(500).json({error: err.message});
+        res.send(err)
+       
     }
 }
 const searchtrainer=async(req,res)=>{

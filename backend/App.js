@@ -8,7 +8,7 @@ const Courseroutes=require("./routes/Courseroutes")
 const Studentroutes=require("./routes/Studentroutes")
 const app=express()
 const mongodb=require("./config/db")
-mongodb()
+mongodb();
 app.use(cors())
 app.use(express.json())
 app.use('/api',Trainerroutes)
