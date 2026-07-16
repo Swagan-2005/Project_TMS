@@ -40,7 +40,7 @@ function Trainer(){
 
     }
     const handleget=async()=>{
-        let datas=await axios.get("http://localhost/3000/api/trainerget");
+        let datas=await axios.get("http://localhost:3000/api/trainerget");
         settrainerdata(datas.data);
         if(datas.data.length==0){
             setmessage("No Trainer Data")
