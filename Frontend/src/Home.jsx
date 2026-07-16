@@ -17,15 +17,15 @@ function Home() {
       new bootstrap.Tooltip(el);
     });
     const datacount=async()=>{
-          let datas=await axios.get(`${import.meta.env.VITE_API_URL}/api/trainerget`);
+          let datas=await axios.get("http://localhost/3000/api/trainerget");
           settcount(datas.data.length)
     }
     const coursecount=async()=>{
-      let datas=await axios.get(`${import.meta.env.VITE_API_URL}/api/getcourse`);
+      let datas=await axios.get("http://localhost/3000/api/getcourse");
       setccount(datas.data.length)
     }
     const studentcount=async()=>{
-      let datas=await axios.get(`${import.meta.env.VITE_API_URL}/api/getstudent`);
+      let datas=await axios.get("http://localhost/3000/api/getstudent");
       setscount(datas.data.length)
     }
     datacount();

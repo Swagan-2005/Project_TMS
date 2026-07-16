@@ -14,7 +14,6 @@ app.use(express.json())
 app.use('/api',Trainerroutes)
 app.use('/api',Courseroutes)
 app.use('/api',Studentroutes)
-app.get("/", (req, res) => {
-    res.send("Backend running");
-});
-module.exports = app;
+app.listen(3000,()=>{
+    console.log("Server Started")
+})

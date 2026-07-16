@@ -28,19 +28,19 @@ function Trainer(){
 
     const onsubmit=async(data)=>{
         if(title=="Add Trainer Form"){
-        let newtrainer=await axios.post(`${import.meta.env.VITE_API_URL}/api/trainercreate`,data)
+        let newtrainer=await axios.post("http://localhost/3000/api/trainercreate",data)
    
         handleget();
         }
         else{
-            let updatetrainer=await axios.put(`${import.meta.env.VITE_API_URL}/api/trainerput/`+id,data)
+            let updatetrainer=await axios.put("http://localhost/3000/api/trainerput/"+id,data)
       
             handleget();
         }
 
     }
     const handleget=async()=>{
-        let datas=await axios.get(`${import.meta.env.VITE_API_URL}/api/trainerget`);
+        let datas=await axios.get("http://localhost/3000/api/trainerget");
         settrainerdata(datas.data);
         if(datas.data.length==0){
             setmessage("No Trainer Data")
@@ -69,7 +69,7 @@ function Trainer(){
     }
     const deletedata=async()=>{
         
-        let del=await axios.delete(`${import.meta.env.VITE_API_URL}/api/trainerdelete/`+id);
+        let del=await axios.delete("http://localhost/3000/api/trainerdelete/"+id);
         handleget();
   
     }
@@ -87,7 +87,7 @@ function Trainer(){
         setmessage("")
         if(search.length!=0){
          
-            let val=await axios.get(`${import.meta.env.VITE_API_URL}/api/trainersearch?name=${search}`)
+            let val=await axios.get(`http://localhost/3000/api/trainersearch?name=${search}`)
 
 
             if(val.data!="Not Found"){
