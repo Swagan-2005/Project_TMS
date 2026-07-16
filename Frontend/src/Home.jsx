@@ -25,7 +25,7 @@ function Home() {
       setccount(datas.data.length)
     }
     const studentcount=async()=>{
-      let datas=await axios.get("http://localhost;3000/api/getstudent");
+      let datas=await axios.get("http://localhost:3000/api/getstudent");
       setscount(datas.data.length)
     }
     datacount();
