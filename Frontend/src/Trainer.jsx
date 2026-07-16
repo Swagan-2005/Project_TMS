@@ -28,12 +28,12 @@ function Trainer(){
 
     const onsubmit=async(data)=>{
         if(title=="Add Trainer Form"){
-        let newtrainer=await axios.post("http://localhost/3000/api/trainercreate",data)
+        let newtrainer=await axios.post("http://localhost:3000/api/trainercreate",data)
    
         handleget();
         }
         else{
-            let updatetrainer=await axios.put("http://localhost/3000/api/trainerput/"+id,data)
+            let updatetrainer=await axios.put("http://localhost:3000/api/trainerput/"+id,data)
       
             handleget();
         }
