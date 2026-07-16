@@ -32,19 +32,19 @@ function Student(){
 
     const onsubmit=async(data)=>{
         if(title=="Add Student Form"){
-        let newstudent=await axios.post("http://localhost/3000/api/addstudent",data)
+        let newstudent=await axios.post("http://localhost:3000/api/addstudent",data)
    
         handleget();
         }
         else{
-            let updatestudent=await axios.put("http://localhost/3000/api/updatestudent/"+id,data)
+            let updatestudent=await axios.put("http://localhost:3000/api/updatestudent/"+id,data)
       
             handleget();
         }
 
     }
     const handleget=async()=>{
-        let datas=await axios.get("http://localhost/3000//api/getstudent");
+        let datas=await axios.get("http://localhost:3000//api/getstudent");
         setstudentdata(datas.data);
         if(datas.data.length==0){
             setmessage("No Student Data")
@@ -73,7 +73,7 @@ function Student(){
     }
     const deletedata=async()=>{
         
-        let del=await axios.delete("http://localhost/3000/api/deletestudent/"+id);
+        let del=await axios.delete("http://localhost:3000/api/deletestudent/"+id);
         handleget();
   
     }
@@ -91,7 +91,7 @@ function Student(){
         setmessage("")
         if(search.length!=0){
          
-            let val=await axios.get(`http://localhost/3000/api/searchstudent?name=${search}`)
+            let val=await axios.get(`http://localhost:3000/api/searchstudent?name=${search}`)
 
 
             if(val.data!="Not Found"){
@@ -116,12 +116,12 @@ function Student(){
     useEffect(()=>{
         handleget();
         const trainerlist=async()=>{
-            let datas=await axios.get("http://localhost/3000/api/trainerget");
+            let datas=await axios.get("http://localhost:3000/api/trainerget");
             settrainers(datas.data)
 
         }
         const courselist=async()=>{
-            let datas=await axios.get("http://localhost/3000/api/getcourse");
+            let datas=await axios.get("http://localhost:3000/api/getcourse");
             setcourses(datas.data)
         }
         trainerlist();

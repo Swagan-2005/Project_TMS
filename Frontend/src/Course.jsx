@@ -27,19 +27,19 @@ function Course(){
 
     const onsubmit=async(data)=>{
         if(title=="Add Course Form"){
-        let newcourse=await axios.post("http://localhost/3000/api/addcourse",data)
+        let newcourse=await axios.post("http://localhost:3000/api/addcourse",data)
    
         handleget();
         }
         else{
-            let updatecourse=await axios.put("http://localhost/3000/api/updatecourse/"+id,data)
+            let updatecourse=await axios.put("http://localhost:3000/api/updatecourse/"+id,data)
       
             handleget();
         }
 
     }
     const handleget=async()=>{
-        let datas=await axios.get("http://localhost/3000/api/getcourse");
+        let datas=await axios.get("http://localhost:3000/api/getcourse");
         setcoursedata(datas.data);
         if(datas.data.length==0){
             setmessage("No Course Data");
@@ -66,7 +66,7 @@ function Course(){
     }
     const deletedata=async()=>{
         
-        let del=await axios.delete("http://localhost/3000/api/deletecourse/"+id);
+        let del=await axios.delete("http://localhost:3000/api/deletecourse/"+id);
         handleget();
   
     }
@@ -84,7 +84,7 @@ function Course(){
         setmessage("")
         if(search.length!=0){
          
-            let val=await axios.get(`http://localhost/3000/api/coursesearch?name=${search}`)
+            let val=await axios.get(`http://localhost:3000/api/coursesearch?name=${search}`)
 
 
             if(val.data!="Not Found"){

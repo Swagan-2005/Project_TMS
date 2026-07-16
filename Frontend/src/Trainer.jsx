@@ -69,7 +69,7 @@ function Trainer(){
     }
     const deletedata=async()=>{
         
-        let del=await axios.delete("http://localhost/3000/api/trainerdelete/"+id);
+        let del=await axios.delete("http://localhost:3000/api/trainerdelete/"+id);
         handleget();
   
     }
@@ -87,7 +87,7 @@ function Trainer(){
         setmessage("")
         if(search.length!=0){
          
-            let val=await axios.get(`http://localhost/3000/api/trainersearch?name=${search}`)
+            let val=await axios.get(`http://localhost:3000/api/trainersearch?name=${search}`)
 
 
             if(val.data!="Not Found"){
