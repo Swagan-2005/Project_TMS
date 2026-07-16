@@ -44,7 +44,7 @@ function Student(){
 
     }
     const handleget=async()=>{
-        let datas=await axios.get("http://localhost:3000//api/getstudent");
+        let datas=await axios.get("http://localhost:3000/api/getstudent");
         setstudentdata(datas.data);
         if(datas.data.length==0){
             setmessage("No Student Data")
